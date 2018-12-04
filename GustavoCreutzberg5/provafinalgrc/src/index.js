@@ -1,12 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+function Relogio(props) {
+    return (
+        <div>
+            {props.horario.toLocaleTimeString()}
+        </div>
+    );
+}
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+function tick() {
+    ReactDOM.render(
+        <Relogio horario={new Date()} />,
+        document.getElementById('root')
+    );
+}
+
+setInterval(tick, 1000);
+
+ReactDOM.render(
+    <Relogio />
+    document.getElementById('root')
+	);
